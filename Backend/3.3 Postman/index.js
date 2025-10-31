@@ -14,7 +14,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  //Do something with the data
   res.sendStatus(201);
 });
 
