@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+    <h2>Your New Cocktail Recipe</h2>
+    <div class="card">
+        <h3><strong>
+                <%= name %>
+            </strong>(<%= alcohol %>)</h3> <!--Cocktail name-->
+        <p><strong></strong></p>
+        <p>
+            <strong>Ingredients:</strong>
+            <%= ingredients.join(", ") %>
+        </p>
+        <p>
+            <strong>Instructions:</strong>
+            <%= instructions %>
+        </p>
+    </div>
+
+</body>
+</html>
