@@ -58,7 +58,7 @@ app.post("/add", async (req, res) => {
 
   try {
     const result = await db.query(
-      "SELECT country_code FROM countries WHERE LOWER(country_name) LIKE '%' || $1 || '%';",
+      "SELECT country_code FROM countries WHERE LOWER(country_name) LIKE  $1 || '%';",
       [input.toLowerCase()]
     );
 
@@ -71,10 +71,24 @@ app.post("/add", async (req, res) => {
       );
       res.redirect("/");
     } catch (err) {
-      console.log(err);
+      const countries = await checkVisisted();
+      res.render("index.ejs", {
+        countries: countries,
+        total: countries.length,
+        users: users,
+        color: currentUser.color,
+        error: "Country has already been added",
+      });
     }
   } catch (err) {
-    console.log(err);
+    const countries = await checkVisisted();
+    res.render("index.ejs", {
+      countries: countries,
+      total: countries.length,
+      users: users,
+      color: currentUser.color,
+      error: "Country not found",
+    });
   }
 });
 

@@ -390,11 +390,13 @@
   <script>
   const country_codes = <%- JSON.stringify(countries) %>; 
   country_codes.forEach(code => {
-    const countryEl = document.getElementById(code); 
-    if (countryEl) { 
-      countryEl.style.fill = "<%= color %>"; 
-    } 
-  });
+  const trimmedCode = code.trim();   
+  const countryEl = document.getElementById(trimmedCode);
+  if (countryEl) {
+    countryEl.style.fill = "<%= color %>";
+  }
+});
+
   </script>
 </body>
 
